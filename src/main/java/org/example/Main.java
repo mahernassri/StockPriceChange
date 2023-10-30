@@ -1,5 +1,6 @@
 package org.example;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 public class Main
@@ -23,10 +24,10 @@ public class Main
 
             if (earnings.compareTo(BigDecimal.ZERO) > 0)
             {
-                System.out.println("After day " + days + " , you earned $" + earnings + " per share.");
+                System.out.println("After day " + days + " , you earned $" + earnings.setScale(2, RoundingMode.HALF_UP) + " per share.");
             } else if (earnings.compareTo(BigDecimal.ZERO) < 0)
             {
-                System.out.println("After day " + days + " , you lost $" + earnings + " per share.");
+                System.out.println("After day " + days + " , you lost $" + earnings.setScale(2, RoundingMode.HALF_UP) + " per share.");
             } else
             {
                 System.out.println("After day " + days + ", you have broken even.");
